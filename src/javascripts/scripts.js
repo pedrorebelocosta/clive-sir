@@ -1,1 +1,5 @@
-// Add your scripts here
+// Load jQuery from NPM
+import $ from 'jquery';
+
+window.jQuery = $;
+window.$ = $;
