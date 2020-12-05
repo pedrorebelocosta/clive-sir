@@ -3,5 +3,9 @@ module.exports = {
 	"env": {
 		"browser": true,
 		"node": true
+	},
+	"rules": {
+		"indent": ["error", "tab"],
+		"no-tabs": 0
 	}
 };
