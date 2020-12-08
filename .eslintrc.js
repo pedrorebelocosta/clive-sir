@@ -6,6 +6,7 @@ module.exports = {
 	},
 	"rules": {
 		"indent": ["error", "tab"],
-		"no-tabs": 0
+		"no-tabs": 0,
+		"no-console": 0
 	}
 };
