@@ -2,8 +2,8 @@
 import $ from 'jquery';
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
-import './pages/index';
 import './pages/city';
+import './pages/index';
 
 window.jQuery = $;
 window.$ = $;

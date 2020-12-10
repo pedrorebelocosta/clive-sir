@@ -9,10 +9,10 @@ if (!ROOT) {
 
 const config = {
 	// Your website's name, used for favicon meta tags
-	site_name: 'Ventto',
+	site_name: 'Clive',
 
 	// Your website's description, used for favicon meta tags
-	site_description: 'Find your home with Ventto',
+	site_description: 'Clive helps you get information on cities',
 
 	// Your website's URL, used for sitemap
 	site_url: 'localhost',
