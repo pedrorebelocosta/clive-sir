@@ -8,11 +8,8 @@
 </head>
 
 <body>
-	<div id="city-carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+	<div class="carousel slide" data-ride="carousel" data-interval="5000">
 		<div class="carousel-inner" id="city-carousel">
-			<div class="carousel-item active">
-				<img src="./images/default-bg.jpg" class="img-fluid">
-			</div>
 		</div>
 		<a class="carousel-control-prev" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -26,42 +23,16 @@
 
 	<div class="page-wrapper">
 		<nav class="navbar justify-content-between navbar-expand-lg navbar-light bg-translucid">
-			<a class="navbar-brand">Braga</a>
+			<a class="navbar-brand" id="city-name"></a>
 			<img class="navbar-logo" src="images/logo.png">
 		</nav>
 	</div>
 
 	<div class="container">
-		<h3>Quality of life indexes</h3>
-		<div class="row row-cols-1 row-cols-md-3" id="qol-cards">
-			<div class="col mb-4">
-				<div class="card flex-row">
-					<img src="http://openweathermap.org/img/wn/10d@2x.png" class="card-img-top weather-icon" alt="...">
-					<div class="card-body">
-						<div class="d-flex flex-wrap justify-content-between align-self-center align-content-center">
-							<h5 class="card-title">Segunda-feira</h5>
-							<p class="float-right text-muted">22/11</p>
-						</div>
-						<p class="card-text"><b>38º</b> / <span class="text-muted">3º</span></p>
-					</div>
-				</div>
-			</div>
-		</div>
 		<h3>Weather forecast (3 days)</h3>
-		<div class="row row-cols-1 row-cols-md-3" id="weather-cards">
-			<div class="col mb-4">
-				<div class="card flex-row">
-					<img src="http://openweathermap.org/img/wn/10d@2x.png" class="card-img-top weather-icon" alt="...">
-					<div class="card-body">
-						<div class="d-flex flex-wrap justify-content-between align-self-center align-content-center">
-							<h5 class="card-title">Segunda-feira</h5>
-							<p class="float-right text-muted">22/11</p>
-						</div>
-						<p class="card-text"><b>38º</b> / <span class="text-muted">3º</span></p>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="row row-cols-1 row-cols-md-3" id="weather-cards"></div>
+		<h3>Quality of life indexes</h3>
+		<div class="row row-cols-1 row-cols-md-3" id="life-cards"></div>
 	</div>
 
 </body>

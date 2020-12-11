@@ -1,5 +1,10 @@
 #background-carousel {
 	z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	// filter: blur(0.1em);
 }
 
@@ -43,4 +48,14 @@
 
 #searchButton {
 	cursor: pointer;
+}
+
+.autocomplete {
+	background-color: white;
+	padding: 1em;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	line-height: 2;
+	cursor: pointer;
+	overflow-y: scroll;
 }
