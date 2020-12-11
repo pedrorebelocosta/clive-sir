@@ -87,6 +87,7 @@
 		"figlet": "^1.2.3",
 		"ftp-deploy": "^2.3.3",
 		"jquery": "^3.5.1",
+		"leaflet": "^1.7.1",
 		"normalize.css": "^8.0.1",
 		"popper.js": "^1.16.1",
 		"reset-css": "^4.0.1",

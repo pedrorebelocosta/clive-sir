@@ -2,5 +2,6 @@
 @import "~normalize.css";
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
 @import "~bootstrap/scss/bootstrap";
-@import "city.scss";
-@import "index.scss";
+@import "~leaflet/dist/leaflet.css";
+@import "city";
+@import "index";

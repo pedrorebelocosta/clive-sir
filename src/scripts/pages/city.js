@@ -1,7 +1,10 @@
 import $ from 'jquery';
 import { createApi } from 'unsplash-js';
 import { fromUnixTime, format } from 'date-fns';
-import { UNSPLASH_API } from '../config/app-keys';
+import * as L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { UNSPLASH_API, TRIPMAP_API } from '../config/app-keys';
 
 const carousel = $('#city-carousel');
 const weatherCards = $('#weather-cards');
@@ -10,10 +13,13 @@ const unsplashApi = createApi({
 	accessKey: UNSPLASH_API,
 });
 
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 $(() => {
 	if (sessionStorage.getItem('city') !== null) {
 		// const fullCityName = sessionStorage.getItem('city');
 		const selectedCity = sessionStorage.getItem('city').split(',')[0];
+		let map;
 		sessionStorage.clear();
 		$('#city-name').text(selectedCity);
 
@@ -36,9 +42,30 @@ $(() => {
 
 		fetch(`http://localhost:1234/weather?city=${selectedCity}`).then(
 			(res) => res.json().then((data) => {
-				const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-				let date = fromUnixTime(data.current.dt);
+				map = L.map('map').setView([data.lat, data.lon], 15);
 
+				const DefaultIcon = L.icon({
+					iconUrl: icon,
+					shadowUrl: iconShadow,
+				});
+
+				L.Marker.prototype.options.icon = DefaultIcon;
+				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+				}).addTo(map);
+
+				fetch(`https://api.opentripmap.com/0.1/en/places/radius?radius=15000&lon=${data.lon}&lat=${data.lat}&limit=15&apikey=${TRIPMAP_API}`).then(
+					(resp) => resp.json().then(
+						(json) => {
+							json.features.forEach((poi) => {
+								L.marker([poi.geometry.coordinates[1], poi.geometry.coordinates[0]]).addTo(map)
+									.bindPopup(`${poi.properties.name}`);
+							});
+						},
+					),
+				);
+
+				let date = fromUnixTime(data.current.dt);
 				let card = `<div class="col mb-4">
 								<div class="card flex-row">
 									<img src="http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png" class="card-img-top weather-icon">
