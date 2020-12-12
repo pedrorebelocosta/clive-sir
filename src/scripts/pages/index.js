@@ -60,7 +60,9 @@ $(() => {
 			e.preventDefault();
 			if (hasSelectedValidItem) {
 				sessionStorage.setItem('city', searchTerm.value.trim());
-				window.open(`${window.location.protocol}//${window.location.host}/city.html`, '_self');
+				const { href } = window.location;
+				const dir = `${window.location.href.substring(0, href.lastIndexOf('/'))}`;
+				window.open(`${dir}/city.html`, '_self');
 			}
 		});
 	}

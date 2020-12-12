@@ -15,7 +15,7 @@ const config = {
 	site_description: 'Clive helps you get information on cities',
 
 	// Your website's URL, used for sitemap
-	site_url: 'localhost',
+	site_url: 'http://localhost/',
 
 	// Google Analytics tracking ID (leave blank to disable)
 	googleAnalyticsUA: '',
